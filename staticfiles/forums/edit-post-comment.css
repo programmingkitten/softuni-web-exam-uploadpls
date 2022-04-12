@@ -1,0 +1,26 @@
+
+.edit-form {
+
+}
+
+::placeholder {
+        color: red;
+        font-size: 1vw;
+        height: 10vh;
+}
+
+.edit-form textarea {
+    font-size: 1vw;
+}
+
+.edit-form .forum {
+    margin-top: 10vh;
+}
+
+.edit-form form {
+    width: 60vw; float: right; margin-top: 3vh; margin-right: 3vw
+}
+
+.edit-form li {
+    color: red;
+}

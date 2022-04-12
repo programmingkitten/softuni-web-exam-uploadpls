@@ -1,0 +1,95 @@
+
+body {
+
+}
+
+.forum {
+    margin-top:1vh;
+    height: 50vh;
+    width: 90vw;
+
+
+}
+
+.forum .sidebar {
+    float: left;
+    margin-top: 1vh;
+    margin-left: 5vw;
+    width: 15vw;
+    height: 70vh;
+    background-color: rgba(1, 1, 1,0.3);
+}
+
+.actual-content {
+    padding-left: 3vw;
+}
+
+.posts {
+    float: right;
+    margin-top: 7vw;
+}
+
+.forum h1 {
+    color: red;
+}
+
+.forums-list {
+    padding-bottom: 2vh;
+}
+
+.forums-list a {
+    text-decoration: none;
+    color: gray;
+}
+
+.what-would-you-like-to-share-or-ask-box {
+    margin-left: 35vw;
+    margin-top: 10vh;
+    margin-right: 0;
+    width: 30vw;
+    height: 1px;
+    /*background-color: antiquewhite;*/
+
+}
+
+
+.what-would-you-like-to-share-or-ask-box img {
+    border-radius: 50%;
+    width: 4vw;
+    height: 4vw;
+    margin-top: 1.6vh;
+}
+
+.ask-box-image {
+
+    float: left;
+    margin-left: 1vw;
+    padding: 3px;
+
+
+}
+
+.ask-box-text {
+    color: indianred;
+    float: right;
+    font-size: 1vw;
+    letter-spacing: 0.1vw;
+    margin-right: 1vw;
+    margin-top: 1vh;
+    font-family: "Roboto", "Lucida Grande", "DejaVu Sans", "Bitstream Vera Sans", Verdana, Arial, sans-serif;
+}
+
+.ask-box-options {
+    margin-right: 1px;
+    font-size: 1.4vw;
+
+}
+
+.ask-box-options a{
+float: bottom;
+   color: dodgerblue;
+    text-decoration: none;
+}
+
+/* POSTS CSS FROM HERE TO DOWN */
+

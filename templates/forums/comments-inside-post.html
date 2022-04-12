@@ -1,0 +1,85 @@
+{% extends 'base/base.html' %}
+{% block content %}
+    <br><br><br><br>
+<div class="forum">
+    {% include 'forums/side-bar.html' %}
+    <div class="post" style="float: right; width: 60vw; margin-bottom: 20vh">
+        <div class="post-title">
+            {% if post.user.profile.profile_picture %}
+                    <img src="{{ post.user.profile.profile_picture.url }}" class="round-image">
+                {% else %}
+                    <img src="https://images.pexels.com/photos/1543793/pexels-photo-1543793.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" class="round-image">
+                {% endif %}
+            <h1 class="posted_by"> Posted by
+                <a href="{% url 'profile view' post.user.pk %}">{{ post.user.nickname }}</a>
+                <br>
+                {% if post.user.profile.moto %}
+                    <span>
+                        {{ post.user.profile.moto|truncatechars:30 }}
+                    </span>
+                {% endif %}
+            </h1>
+        </div>
+
+        <div class="post-content">
+            <h1 class="title"> {{ post.title }}</h1>
+            <p class="description"> {{ post.description }}
+            </p>
+        </div>
+
+        {% if post.user.pk == request.user.pk or request.user.profile.staff_group %}
+
+                <div class="edit-post-box">
+                    <a href="{% url 'edit post' post.pk %}">EDIT</a>
+                    <a href="{% url 'delete post' post.pk %}">DELETE</a>
+                </div>
+        {% elif request.user.profile.staff_group %}
+            {% if request.user.profile.staff_group.edit_posts %}
+                <div>
+                    <a href="{% url 'edit post' post.pk %}">EDIT</a>
+                    <a href="{% url 'delete post' post.pk %}">DELETE</a>
+                </div>
+            {% endif %}
+        {% endif %}
+    </div>
+
+
+    <div class="comments">
+        <form class='add-comment' method="POST" enctype="multipart/form-data" action="{% url 'show posts comments' post.pk %}">
+
+                {% csrf_token %}
+                {% for error in form.description.errors %}
+
+                    <p style="color: red">{{ error }}</p>
+                 {% endfor %}
+                {{ form.description }}
+                <button> post </button>
+        </form>
+    <div class="DivWithScroll">
+        <div class="comment-box">
+        <div class="ScrollDiv">
+            {% for comment in object_list %}
+                <div class="comment">
+
+                    {% if comment.user.profile.profile_picture %}
+                            <img src="{{ comment.user.profile.profile_picture.url }}" class="round-image">
+                    {% else %}
+                        <img src="https://images.pexels.com/photos/1543793/pexels-photo-1543793.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" class="round-image">
+
+                    {% endif %}
+                    <p>
+                        <a href="{% url 'profile view' comment.user.pk %}">
+                            {{ comment.user.nickname }}
+                        </a>
+                            {{ comment.date }}
+                    </p>
+                    <h1>{{ comment.description }}</h1>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+    </div>
+</div>
+
+{% endblock %}

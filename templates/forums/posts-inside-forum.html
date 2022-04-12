@@ -1,0 +1,64 @@
+{% extends 'base/base.html' %}
+{% block content %}
+
+<div class="forum">
+    {% include 'forums/side-bar.html' %}
+
+    <div class="what-would-you-like-to-share-or-ask-box">
+        {% if request.user.profile.profile_picture %}
+            <div class="ask-box-image">
+                <img src="{{ request.user.profile.profile_picture.url }}">
+            </div>
+
+            <div class="ask-box-text">
+                <p> What would you like to ask or share?</p>
+                <div class="ask-box-options">
+                <a href="{% url 'create post' forum_pk %}"> Post </a>
+                <a href="{% url 'create post' forum_pk %}"> Ask </a>
+            </div>
+            </div>
+
+
+        {% endif %}
+    </div>
+    <div style="margin-top: 20vh; margin-left: 30vw">
+    <div class="DivWithScroll">
+        <div class="DivToScroll">
+        {% for post in object_list %}
+            <div class="post">
+                <div class="post-title">
+                    {% if post.user.profile.profile_picture %}
+                            <img src="{{ post.user.profile.profile_picture.url }}" class="round-image">
+                        {% else %}
+                            <img src="https://images.pexels.com/photos/1543793/pexels-photo-1543793.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" class="round-image">
+                        {% endif %}
+                    <h1 class="posted_by"> Posted by
+                        <a href="{% url 'profile view' post.user.pk %}" style="text-decoration: none;
+                        color: darkred;
+                        "
+                        >
+                            {{ post.user.nickname }}</a>
+                        <br>
+                        {% if post.user.profile.moto %}
+                            <span>
+                                {{ post.user.profile.moto|truncatechars:30 }}
+                            </span>
+                        {% endif %}
+                    </h1>
+                </div>
+                <div class="post-content">
+                    <h1 class="title"> {{ post.title }}</h1>
+                    <p class="description"> {{ post.description|truncatechars:200 }}
+                    <a href="{% url 'show posts comments' post.pk %}" style="text-decoration: none">See more</a>
+                    </p>
+
+                </div>
+            </div>
+            <hr>
+        {% endfor %}
+    </div>
+    </div>
+    </div>
+</div>
+
+{% endblock %}
