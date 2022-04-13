@@ -1,8 +1,13 @@
 THE PROJECT SHOULD BE PUT INSIDE A FOLDER NAMED "pyla"!!!!
+PLEASE DO IT!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 OTHERWISE IT WON'T WORK.
 
 1. CREATE A FOLDER pyla
 2. DOWNLOAD THE PROJECT
 3. EXTRACT IT
 4. MOVE IT TO THE pyla FOLDER
-5. BOOM.
+5. CLICK ON "REPLACE FILES IN THE DESTINATION" EVERYTHING SHOULD BE REPLACED!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+! important !
+there are css files named like this --> "subscriptions3.css" instead of "subscriptions" that's because i am currently fighting a very annoying bug that doesn't detect changes in my files. It does only when i rename them. So i have to sometimes.
