@@ -1,6 +1,6 @@
 
 The project should be put inside a folder named "pyla"!
-
+The project was posted on 12th april but i made a lot of changes till 16th april. I don't know how to upload the changes to here tho LOL. Will try to learn today.. (4/16/2022)
 The project has around 45 class based views
 9 models
 5+ class based forms that have practical custom code in them
