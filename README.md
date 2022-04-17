@@ -13,3 +13,4 @@ There are different apps for:
 - subscriptions (takes care of subscription creations, ordering, editing)
 - administrate app (takes care of the custom administrate page of PyLa)
 - web (takes care of the part of the website that doesn't require a logged user)
+- chat (a chat made with django REST)
